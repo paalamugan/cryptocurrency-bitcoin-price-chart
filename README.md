@@ -9,8 +9,8 @@ Cryptocurrency Bitcoin Price Chart was developed using Vite, React, Typescript, 
 This project uses many tools like:
 
 - [ReactJS](https://reactjs.org)
-- [Vite](https://vitejs.dev)
 - [TypeScript](https://www.typescriptlang.org)
+- [Vite](https://vitejs.dev)
 - [Vitest](https://vitest.dev)
 - [Testing Library](https://testing-library.com)
 - [Tailwindcss](https://tailwindcss.com)
