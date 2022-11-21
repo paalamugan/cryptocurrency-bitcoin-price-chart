@@ -2,6 +2,8 @@
 
 Cryptocurrency Bitcoin Price Chart was developed using React, Typescript, react-chartjs-2, chart.js and tailwindcss.
 
+![image](https://user-images.githubusercontent.com/42642576/203091742-5809a3ae-ceaf-44e9-a1fc-e6579ad6814d.png)
+
 ## What is inside?
 
 This project uses many tools like:
