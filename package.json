@@ -1,0 +1,80 @@
+{
+  "name": "cryptocurrency-bitcoin-price-chart",
+  "description": "Cryptocurrency Bitcoin Price Chart was developed using React, Typescript, react-chartjs-2, chart.js and tailwindcss.",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "test": "vitest --config ./vitest.config.ts",
+    "coverage": "vitest run --coverage",
+    "test:ui": "vitest --ui",
+    "lint": "eslint src --max-warnings=0",
+    "type-check": "tsc --project tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "axios": "^1.1.3",
+    "chart.js": "^3.9.1",
+    "react": "^18.2.0",
+    "react-chartjs-2": "^5.0.1",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^14.4.3",
+    "@types/react": "^18.0.24",
+    "@types/react-dom": "^18.0.8",
+    "@typescript-eslint/eslint-plugin": "^5.43.0",
+    "@typescript-eslint/parser": "^5.43.0",
+    "@vitejs/plugin-react": "^2.2.0",
+    "@vitest/coverage-c8": "^0.25.2",
+    "@vitest/ui": "^0.25.2",
+    "autoprefixer": "^10.4.13",
+    "eslint": "^8.2.0",
+    "eslint-config-airbnb": "19.0.4",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-typescript": "^3.5.2",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "eslint-plugin-tailwindcss": "^3.7.0",
+    "jsdom": "^20.0.3",
+    "msw": "^0.49.0",
+    "postcss": "^8.4.19",
+    "prettier": "^2.7.1",
+    "tailwindcss": "^3.2.4",
+    "typescript": "^4.6.4",
+    "vite": "^3.2.3",
+    "vite-tsconfig-paths": "^3.6.0",
+    "vitest": "^0.25.2"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=14",
+    "yarn": ">=1.22.0"
+  },
+  "keywords": [
+    "react",
+    "typescript",
+    "tailwindcss",
+    "chart.js",
+    "react-chartjs-2",
+    "eslint",
+    "prettier",
+    "vitest"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/paalamugan/cryptocurrency-bitcoin-price-chart.git"
+  },
+  "bugs": {
+    "url": "https://github.com/paalamugan/cryptocurrency-bitcoin-price-chart/issues"
+  },
+  "homepage": "https://github.com/paalamugan/cryptocurrency-bitcoin-price-chart#readme",
+  "author": "paalamugan"
+}
