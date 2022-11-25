@@ -2,7 +2,7 @@ import { FC, useMemo } from 'react';
 import useAxios from '@/hooks/useAxios';
 import { dateFormatter } from '@/utils/formatter';
 import { convertDateMsToSecond } from '@/utils/helper';
-// import Skeleton from './Skeleton';
+import Skeleton from './Skeleton';
 import { AreaChart } from './Charts/Area';
 
 interface IMarketChartResponse {
@@ -43,6 +43,7 @@ interface ICoinMarketChartProps {
   currency: string;
   from: number;
   to: number;
+  skeletonClassName?: string;
 }
 
 const CoinMarketChart: FC<ICoinMarketChartProps> = ({
@@ -50,6 +51,7 @@ const CoinMarketChart: FC<ICoinMarketChartProps> = ({
   currency,
   from,
   to,
+  skeletonClassName,
 }) => {
   const params = new URLSearchParams();
   params.append('vs_currency', currency);
@@ -57,16 +59,11 @@ const CoinMarketChart: FC<ICoinMarketChartProps> = ({
   params.append('to', convertDateMsToSecond(to).toString());
 
   const url = `/coins/${id}/market_chart/range?${params.toString()}`;
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { data, loading } = useAxios<IMarketChartResponse>(url);
+  const { data, isLoading } = useAxios<IMarketChartResponse>(url);
 
-  // if (loading) {
-  //   return (
-  //     <div className="wrapper-container mt-8">
-  //       <Skeleton className="h-[230px] w-full mb-2" />
-  //     </div>
-  //   );
-  // }
+  if (isLoading) {
+    return <Skeleton className={`w-full ${skeletonClassName}`} />;
+  }
 
   if (!data) return <div className="h-[270px] w-full" />;
   return <RenderChartElement coin={data} id={id} />;

@@ -1,34 +1,46 @@
-import axios, { AxiosRequestConfig } from 'axios';
+import axios, { AxiosError, AxiosRequestConfig } from 'axios';
 import { useEffect, useState } from 'react';
+
+axios.defaults.baseURL = 'https://api.coingecko.com/api/v3';
 
 const useAxios = <TResponse>(config: AxiosRequestConfig & string) => {
   const [data, setData] = useState<TResponse | null>(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
-
-  axios.defaults.baseURL = 'https://api.coingecko.com/api/v3';
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<AxiosError | null>(null);
+  const [isFetching, setIsFetching] = useState(false);
 
   const fetchData = async (params: AxiosRequestConfig & string) => {
     try {
-      setLoading(true);
+      setError(null);
+      setIsFetching(true);
       const result = await axios(params);
       setData(result.data);
     } catch (err) {
-      setError((err as Error).message || 'Something went wrong');
+      setError(err as AxiosError);
     } finally {
-      setLoading(false);
+      setIsFetching(false);
     }
   };
 
   useEffect(() => {
-    fetchData(config);
+    let isMounted = true;
+    (async () => {
+      if (!isMounted) return;
+      setIsLoading(true);
+      await fetchData(config);
+      setIsLoading(false);
+    })();
+    return () => {
+      isMounted = false;
+    };
   }, [config]);
 
   return {
     data,
-    loading,
+    isLoading,
+    isFetching,
     error,
-    refetch: () => fetchData(config),
+    refetch: (updateConfig = config) => fetchData(updateConfig),
   };
 };
 
